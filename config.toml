@@ -1,0 +1,53 @@
+# Label presets. All lengths in mm. Lines within a label are separated by "|".
+# Top-level keys are defaults for every preset.
+# Env vars PTOUCH_IP, PTOUCH_FONT, PTOUCH_FONT_SIZE, PTOUCH_LABEL_WIDTH,
+# PTOUCH_LABEL_LENGTH override these, and CLI flags override env vars.
+
+printer = "P750W"
+label_width = 12       # tape width, mm
+margin = 2
+chain = true           # no feed+cut after each job, so no ~25mm blank leader on the next label.
+                       # The last label stays in the printer: press the feed/cut button to eject it.
+font = "DejaVuSansMono-Bold.ttf"
+
+[presets.pole]
+description = "Pole label: one large line along the tape, left-justified"
+orientation = "long"
+font_size = 4
+label_length = 40
+max_chars = 12
+max_lines = 1
+align = "left"
+
+[presets.pole-centred]
+description = "Pole label: one large line along the tape, centred"
+orientation = "long"
+font_size = 4
+label_length = 40
+max_chars = 12
+max_lines = 1
+
+[presets.pole-short]
+description = "Pole label: up to 3 smaller lines across the tape, top-aligned"
+orientation = "short"
+font_size = 2.6
+label_length = 25
+max_chars = 6
+max_lines = 3
+slots = 4              # lay out as if 4 lines, so line 1 is always the same distance from the top
+
+[presets.pole-short-centred]
+description = "Pole label: up to 3 smaller lines across the tape, centred"
+orientation = "short"
+font_size = 2.6
+label_length = 25
+max_chars = 6
+max_lines = 3
+
+[presets.cable]
+description = "Cable wrap: same text 3x stacked, small"
+orientation = "long"
+font_size = 2.6
+max_chars = 16
+max_lines = 1
+repeat = 3
